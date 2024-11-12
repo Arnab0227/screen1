@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+Segment Creator
+This project is a web application for creating and managing custom segments with user-defined schemas. It is deployed on Netlify and styled using Tailwind CSS. A serverless function is implemented to handle POST requests through a proxy, helping to avoid CORS issues.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Dynamic Segment Creation: Add custom schemas to build your query.
+Styled with Tailwind CSS: Clean and responsive design for a seamless user experience.
+Serverless Proxy: A Netlify serverless function is used to send POST requests while avoiding CORS errors.
+Webhook Testing: Integration with webhook.site for testing server requests. Visit Webhook Testing Link to check incoming data.
+Technologies Used
+React: For building the user interface.
+Tailwind CSS: For styling the application.
+Axios: For making HTTP requests.
+Netlify Functions: To handle serverless backend logic.
+Webhook.site: For testing API requests.
+Setup Instructions
+Clone the Repository
 
-## Available Scripts
+bash
+Copy code
+git clone https://github.com/<your-username>/<repo-name>.git  
+cd <repo-name>  
+Install Dependencies
 
-In the project directory, you can run:
+bash
+Copy code
+npm install  
+Run Locally
 
-### `npm start`
+bash
+Copy code
+npm start  
+Build and Deploy
+To create a production build:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copy code
+npm run build  
+Deploy the build folder to Netlify or any static hosting service.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Netlify Deployment
+The application is deployed on Netlify, and serverless functions are used for backend tasks. Ensure the following file structure for Netlify deployment:
 
-### `npm test`
+bash
+Copy code
+/project-root  
+  ├── public/  
+  ├── src/  
+  ├── netlify/  
+      └── functions/  
+          └── proxy.js
+Serverless Proxy
+The serverless function (proxy.js) is located in the netlify/functions directory. It handles POST requests and forwards payloads to the specified endpoint.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Proxy URL:
+Development: http://localhost:8888/.netlify/functions/proxy
+Production: https://your-netlify-site.netlify.app/.netlify/functions/proxy
+Test API:
+Data is forwarded to webhook.site. Visit the link to view incoming requests.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Testing the Application
+Add a segment name and schemas in the UI.
+Save the segment.
+The data is sent as a POST request to the serverless proxy, which forwards it to the webhook site.
+View the submitted payload at webhook.site.
+Acknowledgments
+Webhook.site for providing a reliable testing environment.
+Netlify for free deployment and serverless function support.
+Tailwind CSS for effortless styling.
+Feel free to fork and contribute to this project!
